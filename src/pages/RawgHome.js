@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import OurContext from '../context/index';
+
 
 export default function RawgHome(props) {
     const [data, setData] = useState({})
@@ -8,7 +8,7 @@ export default function RawgHome(props) {
     useEffect(() => {
         (async () => {
             try{
-                const res = await fetch(`https://api.rawg.io/api/games?key=b122395149de44309782af9bcebb7090&search=prey`);
+                const res = await fetch(`https://api.rawg.io/api/games?key=\${secrets.apiKey}&search=mario`);
                 const data = await res.json()
                 await setData(data.results[0])
             } catch (err) {
